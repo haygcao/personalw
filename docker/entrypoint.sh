@@ -11,7 +11,7 @@ build_crontab_file(){
 
   if [ ${enable_bilibili} ];then
     if [ -f "${config_bilibili}" ];then
-      echo "*/30 7-22 * * *       node /AutoSignMachine/index.js bilibili --config=${config_bilibili}" >> /var/spool/cron/crontabs/root
+      echo "*/20 7-22 * * *       node /AutoSignMachine/index.js bilibili --config=${config_bilibili}" >> /var/spool/cron/crontabs/root
     else
       echo "bilibili配置文件${config_bilibili}不存在，任务跳过"
     fi
