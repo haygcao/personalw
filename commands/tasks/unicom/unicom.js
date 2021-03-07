@@ -101,13 +101,13 @@ var start = async (params) => {
   }, taskOption)
 
   // 首页-签到有礼-免费领-1G流量日包
-  //  await scheduler.regTask('daily1GFlowTask', async (request) => {
-//    await require('./daily1GFlowTask').doTask(request, options)
- // }, {
- //   ...taskOption,
- //   startTime: 20 * 3600,
- //   ignoreRelay: true
-//  })
+  await scheduler.regTask('daily1GFlowTask', async (request) => {
+    await require('./daily1GFlowTask').doTask(request, options)
+  }, {
+    ...taskOption,
+    startTime: 20 * 3600,
+    ignoreRelay: true
+  })
 
   // 首页-签到有礼-免费领-浏览领积分
   await scheduler.regTask('dailyLiuLan', async (request) => {
@@ -120,14 +120,14 @@ var start = async (params) => {
   }, taskOption)
 
   // 首页-签到有礼-免费拿-看视频夺宝
-   易出现本次操作需要进行验证，暂时注释
-   await scheduler.regTask('dailyVideoFreeGoods', async (request) => {
-    await require('./dailyVideoFreeGoods').doTask(request, options)
-   }, {
-     isCircle: true,
-     startTime: 10 * 3600,
-     intervalTime: 4 * 3600
-   })
+  // 易出现本次操作需要进行验证，暂时注释
+  // await scheduler.regTask('dailyVideoFreeGoods', async (request) => {
+  //   await require('./dailyVideoFreeGoods').doTask(request, options)
+  // }, {
+  //   isCircle: true,
+  //   startTime: 10 * 3600,
+  //   intervalTime: 4 * 3600
+  // })
 
   // 首页-签到有礼-免费抽-赢vivo x60
   await scheduler.regTask('dailyNcow', async (request) => {
@@ -383,14 +383,14 @@ var start = async (params) => {
   })
 
   // 每日0点自动兑换流量
-  await scheduler.regTask('exchangeDFlow', async (request) => {
-    await require('./exchangeDFlow').doTask(request, options)
-  }, {
-    ...taskOption,
-    startTime: 0,
-    startHours: 0,
-    ignoreRelay: true
-  })
+ // await scheduler.regTask('exchangeDFlow', async (request) => {
+ //   await require('./exchangeDFlow').doTask(request, options)
+ // }, {
+  //  ...taskOption,
+ //   startTime: 0,
+ //   startHours: 0,
+//    ignoreRelay: true
+ // })
 
   // 定时检测流量兑换
   // 可使用 --exchangeDFlowCircle-intervalTime 1800 选项指定流量检查间隔时间，单位秒
