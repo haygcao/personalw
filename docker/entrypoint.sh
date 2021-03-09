@@ -11,7 +11,7 @@ build_crontab_file(){
 
   if [ ${enable_bilibili} ];then
     if [ -f "${config_bilibili}" ];then
-      echo "*/20 7-22 * * *       node /AutoSignMachine/index.js bilibili --config=${config_bilibili}" >> /var/spool/cron/crontabs/root
+      echo "*/30 7-22 * * *       node /AutoSignMachine/index.js bilibili --config=${config_bilibili}" >> /var/spool/cron/crontabs/root
     else
       echo "bilibili配置文件${config_bilibili}不存在，任务跳过"
     fi
@@ -27,9 +27,9 @@ build_crontab_file(){
 
   if [ ${enable_unicom} ];then
     if [ -f "${config_unicom}" ];then
-      echo "*/15 5-22 * * *       node /AutoSignMachine/index.js unicom --config=${config_unicom}" >> /var/spool/cron/crontabs/root
+      echo "*/30 7-22 * * *       node /AutoSignMachine/index.js unicom --config=${config_unicom}" >> /var/spool/cron/crontabs/root
     else
-      echo "*/15 5-22 * * *       node /AutoSignMachine/index.js unicom --cookies ${cookies} --user ${user} --password ${password} --appid ${appid}" >> /var/spool/cron/crontabs/root
+      echo "unicom配置文件${config_unicom}不存在，任务跳过"
     fi
   fi
 
